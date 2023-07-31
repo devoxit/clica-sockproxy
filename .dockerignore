@@ -1,0 +1,6 @@
+.env
+node_modules
+app.test.js
+README.md
+bin
+docker-compose.yml
