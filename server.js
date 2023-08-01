@@ -24,7 +24,7 @@ try {
 
     const proxyServer = http.createServer(proxyApp)
     proxyApp.use(morgan('dev'));
-    proxyApp.use(cors());
+    proxyApp.use(cors({ exposedHeaders: "*" }));
     proxyApp.use(serializeUser());
     proxyApp.use(`/${SOCKET_PATH}`, function (req, res) {
         wsProxy.web(req, res, { target: `http://${HOST}:${PORT}/${SOCKET_PATH}` });
