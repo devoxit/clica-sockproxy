@@ -21,6 +21,7 @@ try {
         }
     })
 
+
     const proxyServer = http.createServer(proxyApp)
     proxyApp.use(morgan('dev'));
     proxyApp.use(cors());
