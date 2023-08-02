@@ -7,7 +7,6 @@ const HOST = process.env.SOCKET_HOST || "localhost"
 const PORT = process.env.SOCKET_PORT || 6969
 const SOCKET_PATH = "socket.io"
 var http = require('http');
-var debug = require('debug')('spb:server');
 var morgan = require('morgan');
 var cors = require('cors');
 const { serializeUser } = require('@narmy/core').middlware
@@ -41,7 +40,7 @@ try {
 
 
     proxyServer.listen(PROXY_PORT, function () {
-        debug(`Proxy server listening on http://${HOST}:${PROXY_PORT}`, '\n');
+        console.log(`Proxy server listening on http://${HOST}:${PROXY_PORT}`, '\n');
     });
 }
 catch (err) {
