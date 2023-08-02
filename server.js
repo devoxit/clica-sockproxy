@@ -29,6 +29,9 @@ try {
         wsProxy.web(req, res, { target: `http://${HOST}:${PORT}/${SOCKET_PATH}` });
     });
 
+    proxyApp.get("/", (req, res) => {
+        return res.status(200).json({ active: true })
+    })
     proxyServer.on("upgrade", function (req, socket, head) {
         console.log("upgrade:", "req, socket, head")
         wsProxy.ws(req, socket, head);
